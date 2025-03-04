@@ -1,0 +1,5 @@
+In the project I implemented a neural network from  using NumPy to perform multi-class classification on the Wine dataset from sklearn.datasets. This dataset was chosen because it has well-defined numerical features and a balanced class distribution. The dataset is also found in the sklearn library making it easy to load aand use.
+
+I used StandardScaler for feature scaling to normalize the data as in the example given to us. The neural network consists of an input layer, one hidden layer with ReLU activation, and an output layer with Softmax activation for classification.
+
+The network was trained using forward and backward propagation with cross-entropy loss as cost and gradient descent as optimization. The loss decreased throughout the 1000 epochs, so the model successfully learned from the data. The final test accuracy of 88.89% shows that the model has good generalization. I believe further improvement is possible with using more hidden layers.
