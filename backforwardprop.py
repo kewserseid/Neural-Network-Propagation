@@ -1,6 +1,7 @@
 # Implement backpropagation for the model previously built using forward propagation, and 
 # evaluate the differences in performance between the two approaches.
 import numpy as np
+from feedforwardprop import forward_propagation
 
 def backward_propagation(X, y, Z1, A1, Z2, A2, Z3, A3, Z4, output, W1, b1, W2, b2, W3, b3, W4, b4, learning_rate):
 
@@ -35,3 +36,13 @@ def backward_propagation(X, y, Z1, A1, Z2, A2, Z3, A3, Z4, output, W1, b1, W2, b
     b4 -= learning_rate * db4
 
     return W1, b1, W2, b2, W3, b3, W4, b4, total_loss
+
+
+def train(X_train, y_train, W1, b1, W2, b2, W3, b3, W4, b4, epochs, learning_rate):
+    for epoch in range(epochs):
+        Z1, A1, Z2, A2, Z3, A3, Z4, output = forward_propagation(X_train, W1, b1, W2, b2, W3, b3, W4, b4)
+        W1, b1, W2, b2, W3, b3, W4, b4, total_loss = backward_propagation(
+            X_train, y_train, Z1, A1, Z2, A2, Z3, A3, Z4, output, W1, W2, W3, W4, learning_rate)
+        if epoch % 10 == 0:
+            print(f"Backprop Epoch {epoch}, Total Loss: {total_loss:.4f}")
+    return W1, b1, W2, b2, W3, b3, W4, b4
