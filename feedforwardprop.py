@@ -6,9 +6,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
 
-iris = datasets.load_iris()
-X = iris.data  
-y = iris.target
+dataset = datasets.load_breast_cancer()
+X = dataset.data
+y = dataset.target
 
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
