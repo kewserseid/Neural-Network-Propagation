@@ -67,7 +67,7 @@ def train(X_train, y_train, W1, b1, W2, b2, W3, b3, W4, b4, epochs, learning_rat
             )
         
         # Print loss every 10 epochs for monitoring training progress
-        if epoch % 10 == 0:
+        if epoch % 100 == 0:
             print(f"Backprop Epoch {epoch}, Loss: {loss:.4f}")
     
     return W1, b1, W2, b2, W3, b3, W4, b4
